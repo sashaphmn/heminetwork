@@ -629,7 +629,18 @@ func (p *pgdb) nextL2BTCFinalitiesAssumedUnpublished(ctx context.Context, lessTh
 			l2_keystones.state_root,
 			l2_keystones.ep_hash,
 			l2_keystones.version,
-			%s,
+			COALESCE((SELECT height
+
+				FROM 
+				(
+					SELECT height FROM btc_blocks_can
+						INNER JOIN l2_keystones ll ON ll.l2_keystone_abrev_hash 
+							= pop_basis.l2_keystone_abrev_hash
+			
+					WHERE ll.l2_block_number >= l2_keystones.l2_block_number
+					AND height > (SELECT height FROM btc_blocks_can ORDER BY height DESC LIMIT 1) - 100
+					ORDER BY height ASC LIMIT 1
+				)), 0),
 			COALESCE((SELECT MAX(height) FROM btc_blocks_can),0)
 
 		FROM l2_keystones

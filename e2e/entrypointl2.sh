@@ -12,6 +12,8 @@ fi
 
 /git/op-geth/build/bin/geth init --datadir /tmp/datadir /l2configs/genesis.json
 
+mkdir -p /tbc/headers
+
 /git/op-geth/build/bin/geth \
  --keystore \
  /tmp/keystore \
@@ -49,4 +51,4 @@ fi
  --override.ecotone=1725868497 \
  --override.canyon=1725868497 \
  --override.cancun=1725868497 \
- --hvm.headerdatadir=/tmp/tbc-headers
+ --hvm.headerdatadir=/tbc/headers
