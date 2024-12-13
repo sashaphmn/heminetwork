@@ -13,6 +13,7 @@ fi
 /git/op-geth/build/bin/geth init --datadir /tmp/datadir /l2configs/genesis.json
 
 mkdir -p /tbc/headers
+mkdir -p /tbc/tbcdatadir
 
 /git/op-geth/build/bin/geth \
  --keystore \
