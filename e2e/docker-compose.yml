@@ -231,6 +231,8 @@ services:
       - { type: "tmpfs", target: "/tmp" }
     networks:
       e2e:
+    ulimits:
+      memlock: -1
   
   op-geth-l2-2:
     build:
