@@ -51,4 +51,5 @@ mkdir -p /tbc/headers
  --override.ecotone=1725868497 \
  --override.canyon=1725868497 \
  --override.cancun=1725868497 \
- --hvm.headerdatadir=/tbc/headers
+ --hvm.headerdatadir=/tbc/headers \
+ --tbc.leveldbhome=/tbc/tbcdatadir 
