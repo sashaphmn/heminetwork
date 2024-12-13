@@ -15,6 +15,8 @@ fi
 mkdir -p /tbc/headers
 mkdir -p /tbc/tbcdatadir
 
+chmod -r u+rwx /tbc
+
 /git/op-geth/build/bin/geth \
  --keystore \
  /tmp/keystore \
