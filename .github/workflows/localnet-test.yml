@@ -39,7 +39,8 @@ jobs:
         run: docker compose -f ./e2e/docker-compose.yml build
 
       - name: "run localnet"
-        run: docker compose -f ./e2e/docker-compose.yml up -d
+        # change back
+        run: docker compose -f ./e2e/docker-compose.yml up
 
       - name: "kill an op-node after a minute"
         run: sleep 60 && docker compose -f ./e2e/docker-compose.yml down op-node
